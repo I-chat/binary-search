@@ -22,19 +22,23 @@ Array.prototype.toOneThousand = function() {
 },
 
 Array.prototype.search = function (d) {
-	var value = {};
-	var counter = 0;
 	var min = 0;
 	var max = this.length - 1;
-	var guess = (max + min) / 2 | 0;
+	var value = {};
+	var counter = 1;
 	while (min <= max) {
-		if (this[guess] === d) {
-			value.counter = i;
-			return guess;
-		} else if (this[guess] < d) {
+		var guess = (max + min) / 2 | 0;
+		if (this[guess] < d) {
+			counter += 1;
 			min = guess + 1;
-		} else {
+		} else if (this[guess] > d) {
+			counter += 1;
 			max = guess - 1;
+		} else {
+			value.count = counter;
+			value.index = guess;
+			value.length = max + 1;
+			return value;
 		}
 	}
 }
