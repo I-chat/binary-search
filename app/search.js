@@ -23,9 +23,8 @@ Array.prototype.toOneThousand = function() {
 
 Array.prototype.search = function (d) {
 	var min = 0;
-	var size = this.length;
-	var max = size - 1;
-	var ans = {length: size, count:0, index: -1};
+	var max = this.length - 1;
+	var ans = {length: this.length, count: 0, index: -1};
 	while (min <= max) {
 		var guess = (max + min) / 2 | 0;
 		if (this[min] === d) {
@@ -39,10 +38,12 @@ Array.prototype.search = function (d) {
 			return ans
 		} else if (this[guess] < d) {
 			min = guess + 1;
+			max -= 1;
 		} else {
 			max = guess - 1;
+			min += 1;
 		}
-		ans.count++;
+		ans.count += 1;
 	}
 	return ans;
 }
