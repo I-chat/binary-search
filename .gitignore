@@ -20,6 +20,9 @@
 *.tar
 *.zip
 
+# Ignore these directories #
+node_modules
+
 # Logs and databases #
 ######################
 *.log
