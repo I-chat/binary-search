@@ -1,22 +1,22 @@
 var file = [
 
 Array.prototype.toTwenty = function() {
-	for (var i = 1; i < 21; i++) {
+	for (var i = 1; i <= 20; i++) {
 		this.push(i);
 	}
 	return this;
 },
 
 Array.prototype.toForty = function () {
-	for (var i = 1; i < 41; i++) {
-		this.push(i);
+	for (var i = 1; i <= 20; i++) {
+		this.push(i * 2);
 	}
 	return this;
 },
 
 Array.prototype.toOneThousand = function() {
-	for (var i = 1; i < 1001; i++) {
-		this.push(i);
+	for (var i = 1; i <= 100; i++) {
+		this.push(i * 10);
 	}
 	return this;
 },
@@ -25,7 +25,7 @@ Array.prototype.search = function (d) {
 	var min = 0;
 	var max = this.length - 1;
 	var value = {};
-	var counter = 1;
+	var counter = 0;
 	while (min <= max) {
 		var guess = (max + min) / 2 | 0;
 		if (this[guess] < d) {
