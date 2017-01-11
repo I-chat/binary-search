@@ -23,24 +23,28 @@ Array.prototype.toOneThousand = function() {
 
 Array.prototype.search = function (d) {
 	var min = 0;
-	var max = this.length - 1;
-	var value = {};
-	var counter = 0;
+	var size = this.length;
+	var max = size - 1;
+	var ans = {length: size, count:0, index: -1};
 	while (min <= max) {
 		var guess = (max + min) / 2 | 0;
-		if (this[guess] < d) {
-			counter += 1;
+		if (this[min] === d) {
+			ans.index = min;
+			return ans;
+		} else if (this[max] === d) {
+			ans.index = max;
+			return ans;
+		} else if (this[guess] === d){
+			ans.index = guess;
+			return ans
+		} else if (this[guess] < d) {
 			min = guess + 1;
-		} else if (this[guess] > d) {
-			counter += 1;
-			max = guess - 1;
 		} else {
-			value.count = counter;
-			value.index = guess;
-			value.length = max + 1;
-			return value;
+			max = guess - 1;
 		}
+		ans.count++;
 	}
+	return ans;
 }
 
 ]
