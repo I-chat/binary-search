@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "An implementation of binary search",
   "main": "app/search.js",
+  "directories": {
+    "test": "tests"
+  },
   "scripts": {
-    "test": "jasmine spec/appSpec.js"
+    "test": "jasmine tests/tests.js"
   },
   "repository": {
     "type": "git",
